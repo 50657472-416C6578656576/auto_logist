@@ -13,3 +13,4 @@ class DefaultSettings(BaseSettings):
     PASSWORD: str = environ.get("PASSWORD", "some_empty_pass")
     DRIVER_PATH: str = environ.get("DRIVER_PATH", f"{getcwd()}\driver\chromedriver.exe")
     OFFER_URL_PATH: str = environ.get("OFFER_URL_PATH", "carrier#!/offers/all/new")
+    MIN_CRITERION: int = environ.get("MIN_CRITERION", 55)
