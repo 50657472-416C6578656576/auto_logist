@@ -1,4 +1,5 @@
-from auto_logist.utils import get_settings, get_authorized
+from auto_logist.driver import get_authorized
+from auto_logist.utils import get_settings
 
 SETTINGS = get_settings()
 
