@@ -1,21 +1,14 @@
-from selenium import webdriver
-from auto_logist.utils import get_settings
+from auto_logist.utils import get_settings, get_authorized
 
-driver = webdriver.Chrome()
+SETTINGS = get_settings()
 
 
-def auth():
-    settings = get_settings()
-    driver.get(settings.URL)
-
-    login_box = driver.find_element(value='login')
-    password_box = driver.find_element(value='password')
-    submit_button = driver.find_element(by='class name', value='btn-block')
-
-    login_box.send_keys(settings.LOGIN)
-    password_box.send_keys(settings.PASSWORD)
-    submit_button.click()
+def go_to_offers(web_driver):
+    web_driver.get(f'{SETTINGS.URL}carrier#!/offers/all/new')
+    return web_driver
 
 
 if __name__ == '__main__':
-    auth()
+    driver = go_to_offers(get_authorized(SETTINGS.URL, SETTINGS.LOGIN, SETTINGS.PASSWORD))
+
+    # driver.quit()
