@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "auto-logist"
+version = "0.1.0"
+description = ""
+authors = ["Petr <rex146@ya.ru>"]
+readme = "README.md"
+packages = [{include = "auto_logist"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+selenium = "^4.5.0"
+pydantic = "^1.10.2"
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
