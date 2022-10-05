@@ -7,7 +7,6 @@ from auto_logist.utils import get_settings
 
 def get_driver():
     chrome_driver_path = get_settings().DRIVER_PATH
-    print(chrome_driver_path)
     driver = webdriver.Chrome(chrome_driver_path)
     return driver
 
