@@ -1,3 +1,3 @@
-from auto_logist.parser.offers_table import get_table_rows
+from auto_logist.parser.offers_table import handle_table
 
-__all__ = ['get_table_rows']
+__all__ = ['handle_table']
