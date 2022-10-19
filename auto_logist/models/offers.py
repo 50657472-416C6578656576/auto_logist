@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 
+from selenium.webdriver.chrome.webdriver import WebDriver
+
 from auto_logist.utils import get_settings
+from auto_logist.utils.maps.yandex import distance
 
 SETTINGS = get_settings()
 
@@ -56,8 +59,10 @@ class Offer:
         self.kilometers = None
 
     def get_kilometers(self):
-        if self.kilometers is None:
-            ...
+        return self.kilometers
+
+    def update_kilometers(self, driver: WebDriver):
+        self.kilometers = distance(driver, finish=self.destination)
         return self.kilometers
 
     def __calculate_total_price(self):
@@ -74,4 +79,4 @@ class Offer:
         return True
 
     def __repr__(self):
-        return f'<{self.id}, total={self.total_price}RUB, address={self.destination}>'
+        return f'<{self.id}, total={self.total_price}RUB, km={self.kilometers}>'
